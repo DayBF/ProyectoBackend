@@ -1,6 +1,7 @@
 package com.dh.ClinicMVC.service.implementation;
 
 import com.dh.ClinicMVC.entity.Odontologo;
+import com.dh.ClinicMVC.exception.ResourceNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,6 +42,14 @@ class OdontologoServiceTest {
         odontologoService.buscarPorId(odontologoId);
 
         assertNotNull(odontologo);
+    }
+    @Test
+    public void buscarNoexistente () {
+        Long odontologoNoExistente = 100L;
+        // buscar un odontólogo con un ID que no existe en la base de datos
+        assertThrows(ResourceNotFoundException.class, () -> {
+            odontologoService.buscarPorId(-1L);
+        });
     }
 
 
