@@ -53,4 +53,19 @@ class OdontologoServiceTest {
     }
 
 
+    @Test
+    void listarTodos() {
+    }
+
+    @Test
+    void actualizar() {
+    }
+
+    @Test
+    void findByMatricula() {
+    }
+
+    @Test
+    void eliminar() {
+    }
 }
