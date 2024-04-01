@@ -5,7 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class OdontologoServiceTest {
@@ -25,4 +30,18 @@ class OdontologoServiceTest {
 
         assertNotNull(odontologo);
     }
+    @Test
+    public void buscarId() {
+
+        Long odontologoId = 1L;
+        Odontologo odontologo = new Odontologo();
+        odontologo.setNombre("Carlos");
+        odontologo.setApellido("Hernandez");
+        odontologo.setMatricula("C1234");
+        odontologoService.buscarPorId(odontologoId);
+
+        assertNotNull(odontologo);
+    }
+
+
 }
