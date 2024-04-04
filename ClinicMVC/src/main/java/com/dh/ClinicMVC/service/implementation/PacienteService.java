@@ -22,17 +22,20 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public Paciente guardar(Paciente paciente) {
+
         return pacienteRepository.save(paciente);
     }
 
     @Override
     public List<Paciente> listarTodos() {
+
         return pacienteRepository.findAll();
     }
 
     @Override
     public Paciente buscarPorId(Long id) {
         Optional<Paciente> pacienteOptional = pacienteRepository.findById(id);
+
         if (pacienteOptional.isPresent()) {
             return pacienteOptional.get();
         }
